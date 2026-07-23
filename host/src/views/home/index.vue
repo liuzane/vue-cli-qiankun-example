@@ -51,12 +51,14 @@ export default {
 
   computed: {
     app1Url() {
+      const microApp1Url = process.env.VUE_APP_MICRO_APP1_URL;
       const routePath = '#/order';
-      return process.env.NODE_ENV === 'development' ? `http:${process.env.VUE_APP_MICRO_APP1_URL}${routePath}` : `${process.env.VUE_APP_MICRO_APP1_URL}${routePath}`;
+      return process.env.NODE_ENV === 'development' ? `http:${microApp1Url}${routePath}` : `${window.location.origin}${microApp1Url}${routePath}`;
     },
     app2Url() {
+      const microApp2Url = process.env.VUE_APP_MICRO_APP2_URL;
       const routePath = '#/user';
-      return process.env.NODE_ENV === 'development' ? `http:${process.env.VUE_APP_MICRO_APP2_URL}${routePath}` : `${process.env.VUE_APP_MICRO_APP2_URL}${routePath}`;
+      return process.env.NODE_ENV === 'development' ? `http:${microApp2Url}${routePath}` : `${window.location.origin}${microApp2Url}${routePath}`;
     },
   },
 };
