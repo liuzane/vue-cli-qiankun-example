@@ -31,24 +31,21 @@ jobs:
         with:
           path: |
             host/node_modules
-            shared/node_modules
             app1/node_modules
             app2/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('host/package-lock.json', 'shared/package-lock.json', 'app1/package-lock.json', 'app2/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('host/package-lock.json', 'app1/package-lock.json', 'app2/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
       - name: Install dependencies
         run: |
           npm ci --prefix host
-          npm ci --prefix shared
           npm ci --prefix app1
           npm ci --prefix app2
 
       - name: Build all apps
         run: |
           npm run build --prefix host
-          npm run build --prefix shared
           npm run build --prefix app1
           npm run build --prefix app2
 
