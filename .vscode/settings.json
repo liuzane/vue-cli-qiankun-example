@@ -1,0 +1,31 @@
+{
+  // 启用 ESLint 格式化
+  "eslint.format.enable": true,
+
+  // 启用对 JS, JSX, Vue 文件的 ESLint 检查
+  "eslint.validate": ["javascript", "javascriptreact", "vue"],
+
+  // 关闭 VS Code 自带的保存时格式化（避免冲突）
+  "editor.formatOnSave": false,
+
+  // 启用保存时自动修复 ESLint 可修复的问题
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // 强制使用 ESLint 作为格式化工具
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+
+  // Vue 文件强制使用 ESLint 作为格式化工具
+  "[vue]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+
+  // 关键配置：让 ESLint 自动根据打开的文件，切换到对应的子项目目录去查找配置和 node_modules
+  "eslint.workingDirectories": [
+    { "mode": "auto" }
+  ],
+}
