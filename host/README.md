@@ -1,24 +1,69 @@
-# host
+# 主应用 - Qiankun Host
 
-## Project setup
-```
+基于 Vue CLI + Qiankun + Vue 2 + Element UI 构建的微前端主应用（基座应用），负责整体布局、侧边栏导航以及子应用的注册与动态加载。菜单配置由主应用自身维护，通过 Qiankun 的 `registerMicroApps` 管理子应用的加载与切换。
+
+## 项目简介
+
+本项目是 [Vue CLI Qiankun Example](https://github.com/liuzane/vue-cli-qiankun-example) 的主应用，采用 Qiankun 微前端框架聚合多个独立子应用（如订单管理、用户管理等）。主要职责：
+
+- 提供全局布局（顶部栏 / 侧边栏 / 内容区域）
+- 配置并注册子应用（app1、app2），实现路由匹配与动态加载
+- 统一管理全局状态（如用户信息、主题等，通过 Vuex 或 provide/inject）
+- 提供全局样式、错误边界等基础能力
+
+所有菜单项及导航逻辑由主应用统一定义，并联动 Vue Router 进行路由切换，当路径匹配子应用 `activeRule` 时，Qiankun 自动挂载对应的子应用。
+
+## 技术栈
+
+| 技术                | 说明                                                                 |
+| ------------------- | -------------------------------------------------------------------- |
+| Vue CLI             | 构建工具，提供脚手架及开发服务器                                      |
+| Vue 2               | UI 框架                                                              |
+| Vue Router 3        | 路由管理（主应用的路由与子应用路径映射）                               |
+| Vuex 3              | 状态管理（可选，用于全局数据共享）                                    |
+| Element UI          | 组件库，提供布局、菜单、卡片等 UI 组件                                |
+| Qiankun             | 微前端框架，负责子应用的注册、加载、卸载与通信                         |
+| MockDB              | 本地模拟数据源（主应用自身可能也使用，但子应用各自独立）              |
+
+## 前置条件
+
+- Node.js >= 8 && <= 16
+- npm / yarn / pnpm 均可
+- 已了解 Qiankun 基本概念
+- 子应用1（订单/产品）、子应用2（用户/角色）需能够独立访问
+
+> 开发时建议同时启动所有子应用，以保证完整的联调环境。
+
+## 安装与运行
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/liuzane/vue-cli-qiankun-example.git
+cd host
+
+# 2. 安装依赖
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
+# 3. 启动开发服务器（需要确保子应用已启动）
 npm run serve
-```
 
-### Compiles and minifies for production
-```
+# 4. 生产构建
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+应用默认运行在 `http://localhost:3000`（Vue CLI 默认端口，具体以终端输出为准）。
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 联调所需服务清单
+
+| 服务名称          | 默认地址                 | 说明                       |
+| ----------------- | ------------------------ | -------------------------- |
+| 子应用1（订单）   | http://localhost:3001    | 订单与产品管理页面         |
+| 子应用2（用户）   | http://localhost:3002    | 用户与角色管理页面         |
+| 主应用           | http://localhost:3000    | 主应用入口，聚合所有子应用   |
+
+启动顺序建议：子应用1 / 子应用2 → 主应用（主应用启动后会自动加载匹配的子应用）。
+
+
+---
+
+欢迎提交 Issue 或 PR，共同完善本项目！
