@@ -47,6 +47,8 @@ export async function bootstrap() {
 export async function mount(props) {
   console.log(`${MICRO_APP_NAME} mount`, props);
   render(props);
+  // 项目渲染完成
+  props.setGlobalState({ init: true });
 }
 
 

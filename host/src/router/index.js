@@ -16,9 +16,7 @@ const router = new VueRouter({
     {
       path: '/:prefix(app1|app2)/:rest*',
       name: 'MicroAppContainer',
-      component: {
-        render: h => h('div', { attrs: { id: 'micro-container' } }),
-      },
+      component: () => import('@/views/micro-page/index.vue'),
     },
   ],
 });
