@@ -27,12 +27,38 @@
         <el-link type="primary" target="_blank" href="https://github.com/liuzane/mock-database">https://github.com/liuzane/mock-database</el-link>
       </li>
     </ul>
+
+    <p class="title" style="margin-top: 40px;">这是我们的子应用（单独访问）：</p>
+    <ul class="doc-list">
+      <li class="doc-list__item">
+        <span>App1</span>:
+        <el-link type="primary" target="_blank" :href="app1Url">{{ app1Url }}</el-link>
+      </li>
+      <li class="doc-list__item">
+        <span>App2</span>:
+        <el-link type="primary" target="_blank" :href="app2Url">{{ app2Url }}</el-link>
+      </li>
+    </ul>
+
+    <p class="title" style="margin-top: 40px;">Github：<el-link type="primary" target="_blank" href="https://github.com/liuzane/vue-cli-qiankun-example">https://github.com/liuzane/vue-cli-qiankun-example</el-link></p>
+    
   </el-card>
 </template>
 
 <script>
 export default {
   name: 'Home',
+
+  computed: {
+    app1Url() {
+      const routePath = '#/order';
+      return process.env.NODE_ENV === 'development' ? `http:${process.env.VUE_APP_MICRO_APP1_URL}${routePath}` : `${process.env.VUE_APP_MICRO_APP1_URL}${routePath}`;
+    },
+    app2Url() {
+      const routePath = '#/user';
+      return process.env.NODE_ENV === 'development' ? `http:${process.env.VUE_APP_MICRO_APP2_URL}${routePath}` : `${process.env.VUE_APP_MICRO_APP2_URL}${routePath}`;
+    },
+  },
 };
 </script>
 
