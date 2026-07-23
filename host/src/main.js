@@ -3,9 +3,6 @@ import { registerMicroApps, start } from 'qiankun';
 import Vue from 'vue';
 import ElementUI from 'element-ui';
 
-// 枚举
-import { MICRO_APP_NAME } from '@/enums';
-
 // 路由
 import router from './router';
 
@@ -23,16 +20,16 @@ Vue.config.productionTip = false;
 // 注册子应用
 registerMicroApps([
   {
-    name: MICRO_APP_NAME.App1,
-    entry: '//localhost:3001',
+    name: process.env.VUE_APP_MICRO_APP1_NAME,
+    entry: process.env.VUE_APP_MICRO_APP1_URL,
     container: '#micro-container',
-    activeRule: `#/${MICRO_APP_NAME.App1}`,
+    activeRule: `${process.env.VUE_APP_PUBLIC_PATH}#/${process.env.VUE_APP_MICRO_APP1_NAME}`,
   },
   {
-    name: MICRO_APP_NAME.App2,
-    entry: '//localhost:3002',
+    name: process.env.VUE_APP_MICRO_APP2_NAME,
+    entry: process.env.VUE_APP_MICRO_APP2_URL,
     container: '#micro-container',
-    activeRule: `#/${MICRO_APP_NAME.App2}`,
+    activeRule: `${process.env.VUE_APP_PUBLIC_PATH}#/${process.env.VUE_APP_MICRO_APP2_NAME}`,
   },
 ]);
 
