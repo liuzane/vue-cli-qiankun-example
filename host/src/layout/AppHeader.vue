@@ -20,16 +20,14 @@
         </div>
         <div class="button-group">
           <el-button
-            type="primary"
-            danger
+            type="danger"
             icon="el-icon-refresh"
             @click="onResetTable(orderStoreName, '订单')"
           >
             重置订单数据
           </el-button>
           <el-button
-            type="primary"
-            danger
+            type="danger"
             icon="el-icon-refresh"
             @click="onResetTable(productStoreName, '产品')"
           >
@@ -45,16 +43,14 @@
         </div>
         <div class="button-group">
           <el-button
-            type="primary"
-            danger
+            type="danger"
             icon="el-icon-refresh"
             @click="onResetTable(userStoreName, '用户')"
           >
             重置用户数据
           </el-button>
           <el-button
-            type="primary"
-            danger
+            type="danger"
             icon="el-icon-refresh"
             @click="onResetTable(roleStoreName, '角色')"
           >
