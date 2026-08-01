@@ -9,10 +9,10 @@
       <el-link
         type="primary"
         target="_blank"
-        href="https://github.com/liuzane/vue-cli-qiankun-example"
+        href="https://github.com/liuzane/qiankun-vue-cli-example"
         class="project-title"
       >
-        vue-cli-qiankun-example
+        qiankun-vue-cli-example
       </el-link>
     </div>
 

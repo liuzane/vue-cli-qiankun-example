@@ -33,7 +33,7 @@ registerMicroApps([
   },
 ]);
 
-const DATABASE_NAME = 'vue-cli-qiankun-example-db';
+const DATABASE_NAME = 'qiankun-vue-cli-example-db';
 window.mockDB.databaseName = DATABASE_NAME;
 
 async function init() {

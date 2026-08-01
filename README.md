@@ -1,4 +1,4 @@
-# Vue CLI Qiankun Example
+# Qiankun Vue CLI Example
 
 一个基于 Qiankun + Vue 构建的微前端演示项目。包含一个主应用（Host）和两个业务子应用（订单/产品管理、用户/角色管理）。每个子应用独立开发、部署，由主应用通过 Qiankun 动态加载，并共用 MockDB 提供的本地模拟数据服务。
 
@@ -6,7 +6,7 @@
 ## 项目结构
 
 ```
-vue-cli-qiankun-example/
+qiankun-vue-cli-example/
 ├── host/                 # 主应用（基座） - 全局布局、菜单、子应用注册与加载
 ├── app1/                 # 子应用1 - 订单管理、产品管理
 └── app2/                 # 子应用2 - 用户管理、角色管理
@@ -107,7 +107,7 @@ npm run build --prefix host && npm run build --prefix app1 && npm run build --pr
 
 
 ## 线上地址
-https://liuzane.github.io/vue-cli-qiankun-example
+https://liuzane.github.io/qiankun-vue-cli-example
 
 
 ## 许可证

@@ -1,10 +1,10 @@
 # 主应用 - Qiankun Host
 
-基于 Vue CLI + Qiankun + Vue 2 + Element UI 构建的微前端主应用（基座应用），负责整体布局、侧边栏导航以及子应用的注册与动态加载。菜单配置由主应用自身维护，通过 Qiankun 的 `registerMicroApps` 管理子应用的加载与切换。
+基于 Qiankun + Vue 2 + Element UI + Vue CLI 构建的微前端主应用（基座应用），负责整体布局、侧边栏导航以及子应用的注册与动态加载。菜单配置由主应用自身维护，通过 Qiankun 的 `registerMicroApps` 管理子应用的加载与切换。
 
 ## 项目简介
 
-本项目是 [Vue CLI Qiankun Example](https://github.com/liuzane/vue-cli-qiankun-example) 的主应用，采用 Qiankun 微前端框架聚合多个独立子应用（如订单管理、用户管理等）。主要职责：
+本项目是 [Qiankun Vue CLI Example](https://github.com/liuzane/qiankun-vue-cli-example) 的主应用，采用 Qiankun 微前端框架聚合多个独立子应用（如订单管理、用户管理等）。主要职责：
 
 - 提供全局布局（顶部栏 / 侧边栏 / 内容区域）
 - 配置并注册子应用（app1、app2），实现路由匹配与动态加载
@@ -17,12 +17,12 @@
 
 | 技术                | 说明                                                                 |
 | ------------------- | -------------------------------------------------------------------- |
-| Vue CLI             | 构建工具，提供脚手架及开发服务器                                      |
+| Qiankun             | 微前端框架，负责子应用的注册、加载、卸载与通信                         |
 | Vue 2               | UI 框架                                                              |
 | Vue Router 3        | 路由管理（主应用的路由与子应用路径映射）                               |
 | Vuex 3              | 状态管理（可选，用于全局数据共享）                                    |
 | Element UI          | 组件库，提供布局、菜单、卡片等 UI 组件                                |
-| Qiankun             | 微前端框架，负责子应用的注册、加载、卸载与通信                         |
+| Vue CLI             | 构建工具，提供脚手架及开发服务器                                      |
 | MockDB              | 本地模拟数据源（主应用自身可能也使用，但子应用各自独立）              |
 
 ## 前置条件
@@ -38,7 +38,7 @@
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/liuzane/vue-cli-qiankun-example.git
+git clone https://github.com/liuzane/qiankun-vue-cli-example.git
 cd host
 
 # 2. 安装依赖
